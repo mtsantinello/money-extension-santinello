@@ -1,0 +1,35 @@
+name: Build and deploy package
+
+on:
+  push:
+    branches:
+      - main
+
+#Específica a config da máquina
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      #Instala dotnet na máquina criada
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: "6.0.x"
+
+      #Compila a aplicação em modo de produção (Release)
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+
+      #Testa a aplicação antes de prosseguir, se falhar aqui, não avança
+      - name: Test
+        run: dotnet test
+
+      #Empacota a plicação
+      - name: Create the Package
+        run: dotnet pack --configuration Release
+
+      - name: Publish
+        run: dotnet nuget push "MoneyExtensionSantinello/bin/Release/*.nupkg" -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json

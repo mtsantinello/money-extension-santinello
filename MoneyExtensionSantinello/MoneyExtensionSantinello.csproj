@@ -4,6 +4,25 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <PackageId>MoneyExtensionSantinello</PackageId>
+    <Version>1.0.1</Version>
+    <License>MIT</License>
+    <Authors>Matheus Santinello, André Baltieri</Authors>
+    <Company>Santinello</Company>
+    <PackageDescription>Extension to convert decimal to integer</PackageDescription>
+    <Description>Extension to convert decimal to integer</Description>
+    <RepositoryUrl>https://github.com/mtsantinello/money-extension-santinello</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/mtsantinello/money-extension-santinello</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageTags>money;int;decima;converter</PackageTags>
+    <Title>MoneyExtensionSantinello</Title>
+    <Summary>Extension to convert decimal to integer</Summary>
   </PropertyGroup>
+
+<ItemGroup>
+    <None Include="..\Media\icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
 </Project>
